@@ -183,12 +183,11 @@ class RiskAnalysisKMap {
 
       // Get the result and parse through and process the information
       KMapEstimationResult kmapResult = completedJob.getRiskDetails().getKMapEstimationResult();
-
       for (KMapEstimationHistogramBucket result : kmapResult.getKMapEstimationHistogramList()) {
         System.out.printf(
             "\tAnonymity range: [%d, %d]\n", result.getMinAnonymity(), result.getMaxAnonymity());
         System.out.printf("\tSize: %d\n", result.getBucketSize());
-
+        
         for (KMapEstimationQuasiIdValues valueBucket : result.getBucketValuesList()) {
           List<String> quasiIdValues =
               valueBucket.getQuasiIdsValuesList().stream()
